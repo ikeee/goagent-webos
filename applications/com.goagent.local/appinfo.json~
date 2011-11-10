@@ -1,0 +1,11 @@
+{
+	"id": "com.goagent.local",
+	"serviceId": "com.goagent.local",
+	"version": "1.0.0",
+	"vendor": "GoAgent",
+	"type": "web",
+	"main": "index.html",
+	"title": "com.goagent.app",
+	"icon": "python.png",
+	"uiRevision":2
+}

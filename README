@@ -1,0 +1,7 @@
+goagent client for webos.
+
+including:
+    Python2.6.5
+    PyOpenSSL0.11
+    webos service/application
+

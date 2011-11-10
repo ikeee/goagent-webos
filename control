@@ -1,0 +1,9 @@
+Package: com.goagent.local
+Version: 1.0.0
+Section: misc
+Priority: optional
+Architecture: all
+Depends: ca.canucksoftware.js-service-framework
+Maintainer: Hewig Xu
+Description: GoAgent client for webos 
+Source: {"Homepage":"http://code.google.com/p/goagent","Category":"Services and Plugins","LastUpdated":"1320929086","License":"GNU GPL v2","Type":"Service","FullDescription":"GoAgent client for weobs","Icon":"http://http://hewigovens.intscan.org/goagent.png","Title":"GoAgent for webos"}

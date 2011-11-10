@@ -1,0 +1,32 @@
+{
+	"id": "com.goagent.service",
+	"description": "GoAgent Service",
+	"services": [
+		{
+			"name": "com.goagent.service",
+			"description": "goagent service for start/stop proxy",
+			"commands": [
+				{
+					"name": "status",
+					"assistant": "StatusAssistant",
+					"public": true
+                		},
+                		{
+					"name": "version",
+					"assistant": "VersionAssistant",
+					"public": true
+                		},
+                		{
+					"name": "start",
+					"assistant": "StartAssistant",
+					"public": true
+                		},
+                		{
+					"name": "stopProxy",
+					"assistant": "StopAssistant",
+					"public": true
+				}
+			] 
+		}
+	]
+}

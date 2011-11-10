@@ -1,0 +1,11 @@
+{
+  "id": "com.goagent.local",
+  "package_format_version": 2,
+  "loc_name": "GoAgent",
+  "version": "1.0.0",
+  "icon": "icon.png",
+  "miniicon": "icon.png",
+  "vendor": "Hewig Xu",
+  "app": "com.goagent.local",
+  "services": ["com.goagent.local"]
+}
