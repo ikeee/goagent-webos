@@ -1,16 +1,18 @@
-enyo.kind({
+enyo.kind(
+{
 	name: "ComGoagentApp",
 	kind: enyo.VFlexBox,
-	components: [
-		{kind: "PageHeader", components: [
-			{content: "Page Header"}
-		]},
-		{flex: 1, kind: "Pane", components: [
-			{flex: 1, kind: "Scroller", components: [
-				//Insert your components here
-			]}
-		]},
-		{kind: "Toolbar", components: [
-		]}
+	components:
+	[
+		{
+			kind: "ToggleButton",
+			onLabel:"On",
+			offLabel:"Off",
+			onChange:"buttonToggle",
+		
+			buttonToggle : function(inSender,inState){
+				this.log("Toggled to state" + inState);
+			}
+		}
 	]
 });

@@ -6,6 +6,6 @@
 	"type": "web",
 	"main": "index.html",
 	"title": "GoAgent",
-	"icon": "python.png",
+	"icon": "goagent.png",
 	"uiRevision":2
 }
