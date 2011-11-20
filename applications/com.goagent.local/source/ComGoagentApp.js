@@ -19,6 +19,19 @@ enyo.kind
         buttonToggle:function(inSender,inState)
         {
             this.log("current state is "+inState);
+            this.sendRequest();
+        },
+        handleResponse:function(future)
+        {
+            this.log(future.result);
+        },
+        handleFailure:function(future)
+        {
+            this.log(future.result);
+        },
+        sendRequest:function()
+        {
+            this.controller.serviceRequest("palm://com.goagent.local.service",{method:"version",parameters:{},onSuccess:this.handleResponse,onFailure:this.handleFailure});
         }
     }
 );

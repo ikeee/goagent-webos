@@ -22,7 +22,7 @@
                     "public": true
                 },
                 {
-                    "name": "stopProxy",
+                    "name": "stop",
                     "assistant": "StopAssistant",
                     "public": true
                 }
