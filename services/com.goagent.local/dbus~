@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=com.goagent.service
-Exec=/var/usr/bin/run-homebrew-js-service /media/cryptofs/apps/usr/palm/services/com.goagent.service

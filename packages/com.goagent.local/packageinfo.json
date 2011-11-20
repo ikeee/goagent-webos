@@ -7,5 +7,5 @@
   "miniicon": "goagent.png",
   "vendor": "Hewig Xu",
   "app": "com.goagent.local",
-  "services": ["com.goagent.local"]
+  "services": ["com.goagent.local.service"]
 }

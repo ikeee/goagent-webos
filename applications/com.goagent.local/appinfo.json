@@ -1,6 +1,6 @@
 {
 	"id": "com.goagent.local",
-	"serviceId": "com.goagent.local",
+	"serviceId": "com.goagent.local.service",
 	"version": "1.0.0",
 	"vendor": "GoAgent",
 	"type": "web",
