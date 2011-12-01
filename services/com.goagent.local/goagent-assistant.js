@@ -1,6 +1,12 @@
 function StatusAssistant() {};
 StatusAssistant.prototype.run = function(future){
-    future.result={returnValue:true};
+    this.file = "/media/cryptofs/apps/usr/palm/services/com.goagent.local.service/"
+            + "running.status";
+    this.pathLib = require("path");
+    if(this.pathLib.existsSync(this.file)) {
+        future.result={running:true};
+    }
+    else future.result={running:false};
 };
 
 function VersionAssistant() {};
@@ -22,10 +28,10 @@ StopAssistant.prototype.run = function(future){
 
 function handleGoagent(future,args){
     this.future = future;
-	this.file = "/media/cryptofs/apps/usr/palm/services/com.goagent.local/"
+	this.file = "/media/cryptofs/apps/usr/palm/services/com.goagent.local.service/"
 			+ "running.status";
-	this.startScript = "/media/cryptofs/apps/usr/palm/services/com.goagent.local/scripts/start.sh";
-	this.stopScript = "/media/cryptofs/apps/usr/palm/services/com.goagent.local/scripts/stop.sh";
+	this.startScript = "/media/cryptofs/apps/usr/palm/services/com.goagent.local.service/scripts/start.sh";
+	this.stopScript = "/media/cryptofs/apps/usr/palm/services/com.goagent.local.service/scripts/stop.sh";
 	this.pathLib = require("path");
 	if(args.state) {
 		this.state = args.state.toLowerCase();
@@ -33,9 +39,11 @@ function handleGoagent(future,args){
 		if(this.state=="on") {
 			this.fs.writeFile(this.file, JSON.stringify({state:"on"}),
 					"utf8");
-			//this.cmd = new CommandLine("/bin/sh " + this.startScript,this.future);
-            this.cmd = new CommandLine("/media/internal/goagent/usr/bin/python /media/internal/goagent/local/proxy.py &",this.future);
+			this.cmd = new CommandLine("/bin/sh " + this.startScript,this.future);
 			this.cmd.run();
+            //var spawn = require("child_process").spawn;
+            //var goagent = spawn("/media/internal/goagent/usr/bin/python",["/media/internal/goagent/local/proxy.py"],{setsid:true});
+            return;
 		} else if(this.state=="off") {
 			if(this.pathLib.existsSync(this.file)) {
 				this.fs.unlink(this.file);
