@@ -9,12 +9,12 @@ enyo.kind
 			 ]},
 			 
 		    {flex:1, kind: "Pane",components: [   
-				     {kind: "InputBox", components:[
-				     		{kind: "LabeledContainer", label:"Enable"},
-							{kind: "ToggleButton",onLabel:"On",offLabel:"Off",onChange:"buttonToggle",style:"margin-left:180px;"}
+				     {kind: "InputBox",components:[
+				     		{kind: "LabeledContainer", label:"Enable", style:"position:absolute;left:0px;"},
+							{name:"toggle_button",kind: "ToggleButton",onLabel:"On",offLabel:"Off",onChange:"buttonToggle",style:"position:absolute;right:0px;"}
 				    ]}
 		        ]},
-            {flex:2, kind: "LabeledContainer", label:"Developed by @hewigovens",style:"margin-left:25px;margin-top:60px;"},
+            {flex:2, kind: "LabeledContainer", label:"Developed by @hewigovens",style:"width:100%;text-align:center;"},
             {kind: "Toolbar", components: []},
             {name: "startGoAgent", kind: "PalmService", service: "palm://com.goagent.local.service", method: "start"},
             {name: "stopGoAgent", kind: "PalmService", service: "palm://com.goagent.local.service", method: "stop"},
@@ -37,8 +37,11 @@ enyo.kind
             this.$.statusGoAgent.call("{}");
         },
         handleSuccess:function(inSender,inResponse){
-            this.log(inResponse);
-            this.buttonToggle.state = true;
+            enyo.log(enyo.json.stringify(inResponse));
+            this.$.toggle_button.setState(inResponse.running);
+        },
+        handleFailure:function(inSender,inResponse){
+            enyo.log(en.json.stringify(inResponse));
         }
     }
 );
