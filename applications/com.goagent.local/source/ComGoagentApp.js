@@ -18,6 +18,8 @@ enyo.kind
             {kind: "Toolbar", components: []},
             {name: "startGoAgent", kind: "PalmService", service: "palm://com.goagent.local.service", method: "start"},
             {name: "stopGoAgent", kind: "PalmService", service: "palm://com.goagent.local.service", method: "stop"},
+            {name: "startRedSocks", kind: "PalmService", service: "palm://com.goagent.local.service", method: "start_redsocks"},
+            {name: "stopRedSocks", kind: "PalmService", service: "palm://com.goagent.local.service", method: "stop_redsocks"},
             {name: "statusGoAgent", kind: "PalmService", service: "palm://com.goagent.local.service", method: "status",onSuccess:"handleSuccess",onFailure:"handleFailure"},
             {name: "versionGoAgent", kind: "PalmService", service: "palm://com.goagent.local.service", method: "version"}
 	    ],
@@ -27,12 +29,17 @@ enyo.kind
             this.log("current state is "+inState);
             if (inState){
                 this.$.startGoAgent.call("{}");
+                if (parseFloat(enyo.fetchDeviceInfo().platformVersion) < 2.2)
+                    this.$.startRedSocks.call("{}");
             }
             else{
-                this.$.stopGoAgent.call("{}");
+                this.$.stopGoAgent.call();
+                if (parseFloat(enyo.fetchDeviceInfo().platformVersion) < 2.2)
+                    this.$.stopRedSocks.call("{}");
             }
         },
         ready:function(){
+            this.log(enyo.fetchDeviceInfo().platformVersion);
             this.log("query goagent status");
             this.$.statusGoAgent.call("{}");
         },

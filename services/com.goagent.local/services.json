@@ -25,6 +25,16 @@
                     "name": "stop",
                     "assistant": "StopAssistant",
                     "public": true
+                },
+                {
+                    "name": "start_redsocks",
+                    "assistant":"StartRedsocksAssistant",
+                    "public":true
+                },
+                {
+                    "name": "stop_redsocks",
+                    "assistant":"StopRedsocksAssistant",
+                    "public":true
                 }
             ]
         }
